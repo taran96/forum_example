@@ -1,0 +1,15 @@
+<form method="post">
+  {% csrf_token %}
+
+
+  {% for field in form %}
+    {{field.label}}: </br>
+    {{field}}</br>
+  {% endfor %}
+
+  <!-- or you can do
+  {{form.as_p}}
+ -->
+ 
+  <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block page_title %}Detail{% endblock page_title %}
+
+{% block content %}
+  <h3>{{object.title}}</h3>
+  <h5>By: {{object.author.username}}</h5>
+  <p>{{object.text}}</p>
+  <hr/>
+  {% if object.comments.all %}
+  <h5>Comments:</h5>
+  {% for comment in object.comments.all %}
+      <p><b>{{comment.author.username}}</b></p>
+      <p>{{comment.text}}</p>
+      <hr/>
+  {% endfor %}
+  <h5> Add comment:</h5>
+  {% else %}
+  <h5> Be the first to comment:</h5>
+  {% endif %}
+  {% include "snippets/form.html" %}
+{% endblock content %}
